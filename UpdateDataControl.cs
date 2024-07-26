@@ -6,9 +6,9 @@ using System.Configuration;
 
 namespace LecturerStudentManagement
 {
-    public partial class UpdateDataForm : Form
+    public partial class UpdateDataControl : UserControl
     {
-        public UpdateDataForm()
+        public UpdateDataControl()
         {
             InitializeComponent();
             LoadCourses();

@@ -6,9 +6,9 @@ using System.Configuration;
 
 namespace LecturerStudentManagement
 {
-    public partial class SearchByPhoneNumberForm : Form
+    public partial class SearchByPhoneNumberControl : UserControl
     {
-        public SearchByPhoneNumberForm()
+        public SearchByPhoneNumberControl()
         {
             InitializeComponent();
         }

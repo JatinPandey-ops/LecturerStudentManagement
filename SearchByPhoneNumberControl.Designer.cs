@@ -2,7 +2,7 @@
 
 namespace LecturerStudentManagement
 {
-    partial class SearchByPhoneNumberForm
+    partial class SearchByPhoneNumberControl
     {
         private System.ComponentModel.IContainer components = null;
         private TextBox txtPhoneNumber;

@@ -1,7 +1,7 @@
 ﻿using System.Windows.Forms;
 namespace LecturerStudentManagement
 {
-    partial class AssignStudentToCourseForm
+    partial class AssignStudentToCourseControl
     {
         private System.ComponentModel.IContainer components = null;
         private ComboBox cmbCourses;

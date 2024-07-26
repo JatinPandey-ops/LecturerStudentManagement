@@ -2,7 +2,7 @@
 
 namespace LecturerStudentManagement
 {
-    partial class ViewDataForm
+    partial class ViewDataControl
     {
         private System.ComponentModel.IContainer components = null;
         private ComboBox cmbCourses;

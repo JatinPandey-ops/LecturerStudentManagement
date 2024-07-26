@@ -5,9 +5,9 @@ using System.Configuration;
 
 namespace LecturerStudentManagement
 {
-    public partial class CreateCourseForm : Form
+    public partial class CreateCourseControl : UserControl
     {
-        public CreateCourseForm()
+        public CreateCourseControl()
         {
             InitializeComponent();
         }

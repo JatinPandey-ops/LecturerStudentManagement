@@ -17,55 +17,56 @@ namespace LecturerStudentManagement
 
         private void homeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Code to navigate to Home page
+            // Clear the panel and add home content if necessary
+            panelMain.Controls.Clear();
         }
 
         private void viewDataToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ViewDataForm viewDataForm = new ViewDataForm();
-            viewDataForm.ShowDialog();
+            LoadControl(new ViewDataControl());
         }
 
         private void updateDataToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UpdateDataForm updateDataForm = new UpdateDataForm();
-            updateDataForm.ShowDialog();
+            LoadControl(new UpdateDataControl());
         }
 
         private void chooseStudentToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ChooseStudentForm chooseStudentForm = new ChooseStudentForm();
-            chooseStudentForm.ShowDialog();
+            LoadControl(new ChooseStudentControl());
         }
 
         private void searchByPhoneNumberToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SearchByPhoneNumberForm searchByPhoneNumberForm = new SearchByPhoneNumberForm();
-            searchByPhoneNumberForm.ShowDialog();
+            LoadControl(new SearchByPhoneNumberControl());
         }
 
         private void createCoursesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreateCourseForm createCourseForm = new CreateCourseForm();
-            createCourseForm.ShowDialog();
+            LoadControl(new CreateCourseControl());
         }
 
         private void dropCoursesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DropCourseForm dropCourseForm = new DropCourseForm();
-            dropCourseForm.ShowDialog();
+            LoadControl(new DropCourseControl());
         }
 
         private void assignStudentToCourseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AssignStudentToCourseForm assignStudentForm = new AssignStudentToCourseForm();
-            assignStudentForm.ShowDialog();
+            LoadControl(new AssignStudentToCourseControl());
         }
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Code to logout and return to the login page
             this.Close();
+        }
+
+        private void LoadControl(UserControl userControl)
+        {
+            panelMain.Controls.Clear();
+            userControl.Dock = DockStyle.Fill;
+            panelMain.Controls.Add(userControl);
         }
     }
 }

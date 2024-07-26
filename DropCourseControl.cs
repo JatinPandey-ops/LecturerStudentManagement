@@ -5,9 +5,9 @@ using System.Configuration;
 
 namespace LecturerStudentManagement
 {
-    public partial class DropCourseForm : Form
+    public partial class DropCourseControl : UserControl
     {
-        public DropCourseForm()
+        public DropCourseControl()
         {
             InitializeComponent();
             LoadCourses();
@@ -46,7 +46,6 @@ namespace LecturerStudentManagement
                     cmd.Parameters.AddWithValue("@CourseCode", courseCode);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Course dropped successfully.");
-                    this.Close();
                 }
             }
         }

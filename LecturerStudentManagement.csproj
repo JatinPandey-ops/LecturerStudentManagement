@@ -47,37 +47,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AssignStudentToCourseForm.cs">
-      <SubType>Form</SubType>
+    <Compile Include="AssignStudentToCourseControl.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AssignStudentToCourseForm.Designer.cs">
-      <DependentUpon>AssignStudentToCourseForm.cs</DependentUpon>
+    <Compile Include="AssignStudentToCourseControl.Designer.cs">
+      <DependentUpon>AssignStudentToCourseControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="ChooseStudentForm.cs">
-      <SubType>Form</SubType>
+    <Compile Include="ChooseStudentControl.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ChooseStudentForm.Designer.cs">
-      <DependentUpon>ChooseStudentForm.cs</DependentUpon>
+    <Compile Include="ChooseStudentControl.Designer.cs">
+      <DependentUpon>ChooseStudentControl.cs</DependentUpon>
     </Compile>
     <Compile Include="CurrentLecturer.cs" />
-    <Compile Include="CreateCourseForm.cs">
-      <SubType>Form</SubType>
+    <Compile Include="CreateCourseControl.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CreateCourseForm.Designer.cs">
-      <DependentUpon>CreateCourseForm.cs</DependentUpon>
+    <Compile Include="CreateCourseControl.Designer.cs">
+      <DependentUpon>CreateCourseControl.cs</DependentUpon>
     </Compile>
     <Compile Include="CurrentStudent.cs" />
-    <Compile Include="DropCourseForm.cs">
-      <SubType>Form</SubType>
+    <Compile Include="DropCourseControl.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="DropCourseForm.Designer.cs">
-      <DependentUpon>DropCourseForm.cs</DependentUpon>
+    <Compile Include="DropCourseControl.Designer.cs">
+      <DependentUpon>DropCourseControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="SearchByPhoneNumberForm.cs">
-      <SubType>Form</SubType>
+    <Compile Include="SearchByPhoneNumberControl.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SearchByPhoneNumberForm.Designer.cs">
-      <DependentUpon>SearchByPhoneNumberForm.cs</DependentUpon>
+    <Compile Include="SearchByPhoneNumberControl.Designer.cs">
+      <DependentUpon>SearchByPhoneNumberControl.cs</DependentUpon>
     </Compile>
     <Compile Include="StudentModuleForm.cs">
       <SubType>Form</SubType>
@@ -85,17 +85,17 @@
     <Compile Include="StudentModuleForm.Designer.cs">
       <DependentUpon>StudentModuleForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UpdateDataForm.cs">
-      <SubType>Form</SubType>
+    <Compile Include="UpdateDataControl.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UpdateDataForm.Designer.cs">
-      <DependentUpon>UpdateDataForm.cs</DependentUpon>
+    <Compile Include="UpdateDataControl.Designer.cs">
+      <DependentUpon>UpdateDataControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewDataForm.cs">
-      <SubType>Form</SubType>
+    <Compile Include="ViewDataControl.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ViewDataForm.Designer.cs">
-      <DependentUpon>ViewDataForm.cs</DependentUpon>
+    <Compile Include="ViewDataControl.Designer.cs">
+      <DependentUpon>ViewDataControl.cs</DependentUpon>
     </Compile>
     <Compile Include="loginForm.cs">
       <SubType>Form</SubType>
@@ -117,8 +117,11 @@
     <Compile Include="RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ChooseStudentForm.resx">
-      <DependentUpon>ChooseStudentForm.cs</DependentUpon>
+    <EmbeddedResource Include="AssignStudentToCourseControl.resx">
+      <DependentUpon>AssignStudentToCourseControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChooseStudentControl.resx">
+      <DependentUpon>ChooseStudentControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="loginForm.resx">
       <DependentUpon>loginForm.cs</DependentUpon>

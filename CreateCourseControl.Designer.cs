@@ -1,7 +1,7 @@
 ﻿using System.Windows.Forms;
 namespace LecturerStudentManagement
 {
-    partial class CreateCourseForm
+    partial class CreateCourseControl
     {
         private System.ComponentModel.IContainer components = null;
         private TextBox txtCourseCode;
