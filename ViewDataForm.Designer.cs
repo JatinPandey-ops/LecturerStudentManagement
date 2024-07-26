@@ -5,8 +5,10 @@ namespace LecturerStudentManagement
     partial class ViewDataForm
     {
         private System.ComponentModel.IContainer components = null;
+        private ComboBox cmbCourses;
+        private Button btnViewData;
         private DataGridView dataGridView1;
-        private Button btnLogout;
+        private Label lblCourses;
 
         protected override void Dispose(bool disposing)
         {
@@ -19,41 +21,61 @@ namespace LecturerStudentManagement
 
         private void InitializeComponent()
         {
+            this.cmbCourses = new System.Windows.Forms.ComboBox();
+            this.btnViewData = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnLogout = new System.Windows.Forms.Button();
+            this.lblCourses = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // cmbCourses
+            // 
+            this.cmbCourses.FormattingEnabled = true;
+            this.cmbCourses.Location = new System.Drawing.Point(150, 30);
+            this.cmbCourses.Name = "cmbCourses";
+            this.cmbCourses.Size = new System.Drawing.Size(200, 24);
+            this.cmbCourses.TabIndex = 0;
+            // 
+            // btnViewData
+            // 
+            this.btnViewData.Location = new System.Drawing.Point(150, 70);
+            this.btnViewData.Name = "btnViewData";
+            this.btnViewData.Size = new System.Drawing.Size(100, 30);
+            this.btnViewData.TabIndex = 1;
+            this.btnViewData.Text = "View Data";
+            this.btnViewData.UseVisualStyleBackColor = true;
+            this.btnViewData.Click += new System.EventHandler(this.btnViewData_Click);
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
+            this.dataGridView1.Location = new System.Drawing.Point(30, 110);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(776, 370);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.Size = new System.Drawing.Size(500, 200);
+            this.dataGridView1.TabIndex = 2;
             // 
-            // btnLogout
+            // lblCourses
             // 
-            this.btnLogout.Location = new System.Drawing.Point(700, 400);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(75, 30);
-            this.btnLogout.TabIndex = 1;
-            this.btnLogout.Text = "Logout";
-            this.btnLogout.UseVisualStyleBackColor = true;
-            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            this.lblCourses.AutoSize = true;
+            this.lblCourses.Location = new System.Drawing.Point(50, 30);
+            this.lblCourses.Name = "lblCourses";
+            this.lblCourses.Size = new System.Drawing.Size(58, 17);
+            this.lblCourses.TabIndex = 3;
+            this.lblCourses.Text = "Courses";
             // 
             // ViewDataForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnLogout);
+            this.ClientSize = new System.Drawing.Size(600, 400);
+            this.Controls.Add(this.lblCourses);
             this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.btnViewData);
+            this.Controls.Add(this.cmbCourses);
             this.Name = "ViewDataForm";
-            this.Text = "View Data";
+            this.Text = "View Student Data";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
         }
     }
 }

@@ -17,25 +17,25 @@ namespace LecturerStudentManagement
             string courseCode = txtCourseCode.Text;
             string courseName = txtCourseName.Text;
 
-            string connectionString = ConfigurationManager.ConnectionStrings["LecturerStudentDB"]?.ConnectionString;
-
-            if (string.IsNullOrEmpty(connectionString))
-            {
-                MessageBox.Show("Connection string is not found.");
-                return;
-            }
-
+            string connectionString = ConfigurationManager.ConnectionStrings["LecturerStudentDB"].ConnectionString;
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
-                using (SqlCommand cmd = new SqlCommand("INSERT INTO Courses (CourseCode, CourseName) VALUES (@CourseCode, @CourseName); INSERT INTO LecturerCourses (LecturerID, CourseID) VALUES ((SELECT LecturerID FROM Lecturers WHERE Username = @Username), SCOPE_IDENTITY())", con))
+                string query = "INSERT INTO Courses (CourseCode, CourseName) VALUES (@CourseCode, @CourseName)";
+                using (SqlCommand cmd = new SqlCommand(query, con))
                 {
                     cmd.Parameters.AddWithValue("@CourseCode", courseCode);
                     cmd.Parameters.AddWithValue("@CourseName", courseName);
-                    cmd.Parameters.AddWithValue("@Username", CurrentLecturer.Username);
-
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Course created successfully.");
+                }
+
+                string linkQuery = "INSERT INTO LecturerCourses (LecturerID, CourseID) SELECT @LecturerID, CourseID FROM Courses WHERE CourseCode = @CourseCode";
+                using (SqlCommand cmd = new SqlCommand(linkQuery, con))
+                {
+                    cmd.Parameters.AddWithValue("@LecturerID", CurrentLecturer.LecturerID);
+                    cmd.Parameters.AddWithValue("@CourseCode", courseCode);
+                    cmd.ExecuteNonQuery();
                 }
             }
         }

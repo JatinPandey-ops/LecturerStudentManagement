@@ -10,22 +10,43 @@ namespace LecturerStudentManagement
         public DropCourseForm()
         {
             InitializeComponent();
+            LoadCourses();
+        }
+
+        private void LoadCourses()
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["LecturerStudentDB"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                string query = "SELECT c.CourseCode FROM Courses c INNER JOIN LecturerCourses lc ON c.CourseID = lc.CourseID WHERE lc.LecturerID = @LecturerID";
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@LecturerID", CurrentLecturer.LecturerID);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        cmbCourses.Items.Add(reader["CourseCode"].ToString());
+                    }
+                }
+            }
         }
 
         private void btnDropCourse_Click(object sender, EventArgs e)
         {
-            string courseCode = txtCourseCode.Text;
+            string courseCode = cmbCourses.SelectedItem.ToString();
 
-            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["LecturerStudentDB"].ConnectionString))
+            string connectionString = ConfigurationManager.ConnectionStrings["LecturerStudentDB"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
-                using (SqlCommand cmd = new SqlCommand("DELETE FROM Courses WHERE CourseCode = @CourseCode AND LecturerID = (SELECT LecturerID FROM Lecturers WHERE Username = @Username)", con))
+                string query = "DELETE FROM Courses WHERE CourseCode = @CourseCode";
+                using (SqlCommand cmd = new SqlCommand(query, con))
                 {
                     cmd.Parameters.AddWithValue("@CourseCode", courseCode);
-                    cmd.Parameters.AddWithValue("@Username", CurrentLecturer.Username);
-
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Course dropped successfully.");
+                    this.Close();
                 }
             }
         }

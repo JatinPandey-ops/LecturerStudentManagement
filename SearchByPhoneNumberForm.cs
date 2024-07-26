@@ -17,22 +17,14 @@ namespace LecturerStudentManagement
         {
             string phoneNumber = txtPhoneNumber.Text;
 
-            string connectionString = ConfigurationManager.ConnectionStrings["LecturerStudentDB"]?.ConnectionString;
-
-            if (string.IsNullOrEmpty(connectionString))
-            {
-                MessageBox.Show("Connection string is not found.");
-                return;
-            }
-
+            string connectionString = ConfigurationManager.ConnectionStrings["LecturerStudentDB"].ConnectionString;
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM Students WHERE PhoneNumber LIKE @PhoneNumber AND StudentID IN (SELECT StudentID FROM StudentCourses WHERE CourseID IN (SELECT CourseID FROM LecturerCourses WHERE LecturerID = (SELECT LecturerID FROM Lecturers WHERE Username = @Username)))", con))
+                string query = "SELECT s.FullName, s.MatricNumber, s.PhoneNumber, s.ProgramCode FROM Students s WHERE s.PhoneNumber LIKE @PhoneNumber";
+                using (SqlCommand cmd = new SqlCommand(query, con))
                 {
-                    cmd.Parameters.AddWithValue("@PhoneNumber", $"%{phoneNumber}%");
-                    cmd.Parameters.AddWithValue("@Username", CurrentLecturer.Username);
-
+                    cmd.Parameters.AddWithValue("@PhoneNumber", "%" + phoneNumber + "%");
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
                     da.Fill(dt);

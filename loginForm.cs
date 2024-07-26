@@ -16,48 +16,24 @@ namespace LecturerStudentManagement
         {
             string username = txtUsername.Text;
             string password = txtPassword.Text;
-            bool isLecturer = rbtnLecturer.Checked;
-            bool isStudent = rbtnStudent.Checked;
 
-            string connectionString = ConfigurationManager.ConnectionStrings["LecturerStudentDB"]?.ConnectionString;
-
-            if (string.IsNullOrEmpty(connectionString))
-            {
-                MessageBox.Show("Connection string is not found.");
-                return;
-            }
-
+            string connectionString = ConfigurationManager.ConnectionStrings["LecturerStudentDB"].ConnectionString;
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
-                string query = isLecturer ?
-                    "SELECT * FROM Lecturers WHERE Username = @Username AND Password = @Password" :
-                    "SELECT * FROM Students WHERE Username = @Username AND Password = @Password";
-
+                string query = "SELECT * FROM Lecturers WHERE Username = @Username AND Password = @Password";
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {
                     cmd.Parameters.AddWithValue("@Username", username);
                     cmd.Parameters.AddWithValue("@Password", password);
-
                     SqlDataReader reader = cmd.ExecuteReader();
-                    if (reader.HasRows)
+                    if (reader.Read())
                     {
-                        reader.Read();
-                        string fullName = reader["FullName"].ToString();
-                        if (isLecturer)
-                        {
-                            CurrentLecturer.Username = username;
-                            CurrentLecturer.FullName = fullName;
-                            MainForm mainForm = new MainForm(fullName);
-                            mainForm.Show();
-                        }
-                        else
-                        {
-                            CurrentStudent.Username = username;
-                            CurrentStudent.FullName = fullName;
-                            StudentModuleForm studentModuleForm = new StudentModuleForm(fullName);
-                            studentModuleForm.Show();
-                        }
+                        CurrentLecturer.LecturerID = (int)reader["LecturerID"];
+                        CurrentLecturer.Username = (string)reader["Username"];
+                        CurrentLecturer.FullName = (string)reader["FullName"];
+                        var mainForm = new MainForm();
+                        mainForm.Show();
                         this.Hide();
                     }
                     else
@@ -70,8 +46,14 @@ namespace LecturerStudentManagement
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            RegisterForm registerForm = new RegisterForm();
+            var registerForm = new RegisterForm();
             registerForm.Show();
+        }
+
+        private void btnStudentModule_Click(object sender, EventArgs e)
+        {
+            var studentModuleForm = new StudentModuleForm();
+            studentModuleForm.Show();
         }
     }
 }

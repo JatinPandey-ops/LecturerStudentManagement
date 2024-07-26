@@ -57,7 +57,7 @@ namespace LecturerStudentManagement
             this.lblCourseCode.AutoSize = true;
             this.lblCourseCode.Location = new System.Drawing.Point(30, 33);
             this.lblCourseCode.Name = "lblCourseCode";
-            this.lblCourseCode.Size = new System.Drawing.Size(94, 17);
+            this.lblCourseCode.Size = new System.Drawing.Size(91, 17);
             this.lblCourseCode.TabIndex = 3;
             this.lblCourseCode.Text = "Course Code:";
             // 
@@ -66,14 +66,12 @@ namespace LecturerStudentManagement
             this.lblCourseName.AutoSize = true;
             this.lblCourseName.Location = new System.Drawing.Point(30, 73);
             this.lblCourseName.Name = "lblCourseName";
-            this.lblCourseName.Size = new System.Drawing.Size(98, 17);
+            this.lblCourseName.Size = new System.Drawing.Size(96, 17);
             this.lblCourseName.TabIndex = 4;
             this.lblCourseName.Text = "Course Name:";
             // 
             // CreateCourseForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(382, 153);
             this.Controls.Add(this.lblCourseName);
             this.Controls.Add(this.lblCourseCode);

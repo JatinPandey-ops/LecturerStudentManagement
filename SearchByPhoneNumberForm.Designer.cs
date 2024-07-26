@@ -39,7 +39,7 @@ namespace LecturerStudentManagement
             // 
             this.btnSearch.Location = new System.Drawing.Point(375, 30);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.Size = new System.Drawing.Size(75, 30);
             this.btnSearch.TabIndex = 1;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -48,10 +48,10 @@ namespace LecturerStudentManagement
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(30, 70);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 80);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(420, 300);
+            this.dataGridView1.Size = new System.Drawing.Size(760, 380);
             this.dataGridView1.TabIndex = 2;
             // 
             // lblPhoneNumber
@@ -59,21 +59,19 @@ namespace LecturerStudentManagement
             this.lblPhoneNumber.AutoSize = true;
             this.lblPhoneNumber.Location = new System.Drawing.Point(30, 33);
             this.lblPhoneNumber.Name = "lblPhoneNumber";
-            this.lblPhoneNumber.Size = new System.Drawing.Size(109, 17);
+            this.lblPhoneNumber.Size = new System.Drawing.Size(107, 17);
             this.lblPhoneNumber.TabIndex = 3;
             this.lblPhoneNumber.Text = "Phone Number:";
             // 
             // SearchByPhoneNumberForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(482, 403);
+            this.ClientSize = new System.Drawing.Size(800, 462);
             this.Controls.Add(this.lblPhoneNumber);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtPhoneNumber);
             this.Name = "SearchByPhoneNumberForm";
-            this.Text = "Search By Phone Number";
+            this.Text = "Search by Phone Number";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Configuration;
@@ -10,30 +11,23 @@ namespace LecturerStudentManagement
         public ChooseStudentForm()
         {
             InitializeComponent();
-            LoadRandomStudent();
+            LoadCourses();
         }
 
-        private void LoadRandomStudent()
+        private void LoadCourses()
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["LecturerStudentDB"]?.ConnectionString;
-
-            if (string.IsNullOrEmpty(connectionString))
-            {
-                MessageBox.Show("Connection string is not found.");
-                return;
-            }
-
-            using (SqlConnection con = new SqlConnection(connectionString))
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["LecturerStudentDB"].ConnectionString))
             {
                 con.Open();
-                using (SqlCommand cmd = new SqlCommand("SELECT TOP 1 * FROM Students WHERE StudentID IN (SELECT StudentID FROM StudentCourses WHERE CourseID IN (SELECT CourseID FROM LecturerCourses WHERE LecturerID = (SELECT LecturerID FROM Lecturers WHERE Username = @Username))) ORDER BY NEWID()", con))
+                using (SqlCommand cmd = new SqlCommand("SELECT CourseID, CourseName FROM Courses", con))
                 {
-                    cmd.Parameters.AddWithValue("@Username", CurrentLecturer.Username);
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    if (reader.HasRows)
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        reader.Read();
-                        lblStudentDetails.Text = $"Matric No: {reader["MatricNo"]}, Name: {reader["FullName"]}, Phone: {reader["PhoneNumber"]}, Program: {reader["ProgramCode"]}";
+                        DataTable dt = new DataTable();
+                        dt.Load(reader);
+                        cmbCourses.DataSource = dt;
+                        cmbCourses.DisplayMember = "CourseName";
+                        cmbCourses.ValueMember = "CourseID";
                     }
                 }
             }
@@ -41,7 +35,33 @@ namespace LecturerStudentManagement
 
         private void btnLoadStudent_Click(object sender, EventArgs e)
         {
-            LoadRandomStudent();
+            int courseId = Convert.ToInt32(cmbCourses.SelectedValue);
+
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["LecturerStudentDB"].ConnectionString))
+            {
+                con.Open();
+                string query = "SELECT TOP 1 s.MatricNumber, s.FullName, s.PhoneNumber, s.ProgramCode " +
+                               "FROM Students s " +
+                               "INNER JOIN StudentCourses sc ON s.MatricNumber = sc.MatricNumber " +
+                               "WHERE sc.CourseID = @CourseID " +
+                               "ORDER BY NEWID()"; // This selects a random student
+
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@CourseID", courseId);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            txtMatricNumber.Text = reader["MatricNumber"].ToString();
+                            txtFullName.Text = reader["FullName"].ToString();
+                            txtPhoneNumber.Text = reader["PhoneNumber"].ToString();
+                            txtProgramCode.Text = reader["ProgramCode"].ToString();
+                        }
+                    }
+                }
+            }
         }
     }
 }

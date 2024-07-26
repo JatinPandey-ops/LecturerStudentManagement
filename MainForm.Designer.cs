@@ -13,9 +13,9 @@ namespace LecturerStudentManagement
         private ToolStripMenuItem searchByPhoneNumberToolStripMenuItem;
         private ToolStripMenuItem createCoursesToolStripMenuItem;
         private ToolStripMenuItem dropCoursesToolStripMenuItem;
+        private ToolStripMenuItem assignStudentToCourseToolStripMenuItem;
         private ToolStripMenuItem logoutToolStripMenuItem;
         private Label lblFullName;
-        private Button btnLogout;  // Add logout button
 
         protected override void Dispose(bool disposing)
         {
@@ -36,9 +36,9 @@ namespace LecturerStudentManagement
             this.searchByPhoneNumberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createCoursesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dropCoursesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.assignStudentToCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblFullName = new System.Windows.Forms.Label();
-            this.btnLogout = new System.Windows.Forms.Button();  // Add logout button
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,10 +53,11 @@ namespace LecturerStudentManagement
             this.searchByPhoneNumberToolStripMenuItem,
             this.createCoursesToolStripMenuItem,
             this.dropCoursesToolStripMenuItem,
+            this.assignStudentToCourseToolStripMenuItem,
             this.logoutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1126, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -70,35 +71,35 @@ namespace LecturerStudentManagement
             // viewDataToolStripMenuItem
             // 
             this.viewDataToolStripMenuItem.Name = "viewDataToolStripMenuItem";
-            this.viewDataToolStripMenuItem.Size = new System.Drawing.Size(88, 24);
+            this.viewDataToolStripMenuItem.Size = new System.Drawing.Size(91, 24);
             this.viewDataToolStripMenuItem.Text = "View Data";
             this.viewDataToolStripMenuItem.Click += new System.EventHandler(this.viewDataToolStripMenuItem_Click);
             // 
             // updateDataToolStripMenuItem
             // 
             this.updateDataToolStripMenuItem.Name = "updateDataToolStripMenuItem";
-            this.updateDataToolStripMenuItem.Size = new System.Drawing.Size(107, 24);
+            this.updateDataToolStripMenuItem.Size = new System.Drawing.Size(108, 24);
             this.updateDataToolStripMenuItem.Text = "Update Data";
             this.updateDataToolStripMenuItem.Click += new System.EventHandler(this.updateDataToolStripMenuItem_Click);
             // 
             // chooseStudentToolStripMenuItem
             // 
             this.chooseStudentToolStripMenuItem.Name = "chooseStudentToolStripMenuItem";
-            this.chooseStudentToolStripMenuItem.Size = new System.Drawing.Size(130, 24);
+            this.chooseStudentToolStripMenuItem.Size = new System.Drawing.Size(127, 24);
             this.chooseStudentToolStripMenuItem.Text = "Choose Student";
             this.chooseStudentToolStripMenuItem.Click += new System.EventHandler(this.chooseStudentToolStripMenuItem_Click);
             // 
             // searchByPhoneNumberToolStripMenuItem
             // 
             this.searchByPhoneNumberToolStripMenuItem.Name = "searchByPhoneNumberToolStripMenuItem";
-            this.searchByPhoneNumberToolStripMenuItem.Size = new System.Drawing.Size(194, 24);
-            this.searchByPhoneNumberToolStripMenuItem.Text = "Search by Phone Number";
+            this.searchByPhoneNumberToolStripMenuItem.Size = new System.Drawing.Size(190, 24);
+            this.searchByPhoneNumberToolStripMenuItem.Text = "Search By Phone Number";
             this.searchByPhoneNumberToolStripMenuItem.Click += new System.EventHandler(this.searchByPhoneNumberToolStripMenuItem_Click);
             // 
             // createCoursesToolStripMenuItem
             // 
             this.createCoursesToolStripMenuItem.Name = "createCoursesToolStripMenuItem";
-            this.createCoursesToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
+            this.createCoursesToolStripMenuItem.Size = new System.Drawing.Size(121, 24);
             this.createCoursesToolStripMenuItem.Text = "Create Courses";
             this.createCoursesToolStripMenuItem.Click += new System.EventHandler(this.createCoursesToolStripMenuItem_Click);
             // 
@@ -108,6 +109,13 @@ namespace LecturerStudentManagement
             this.dropCoursesToolStripMenuItem.Size = new System.Drawing.Size(112, 24);
             this.dropCoursesToolStripMenuItem.Text = "Drop Courses";
             this.dropCoursesToolStripMenuItem.Click += new System.EventHandler(this.dropCoursesToolStripMenuItem_Click);
+            // 
+            // assignStudentToCourseToolStripMenuItem
+            // 
+            this.assignStudentToCourseToolStripMenuItem.Name = "assignStudentToCourseToolStripMenuItem";
+            this.assignStudentToCourseToolStripMenuItem.Size = new System.Drawing.Size(190, 24);
+            this.assignStudentToCourseToolStripMenuItem.Text = "Assign Student To Course";
+            this.assignStudentToCourseToolStripMenuItem.Click += new System.EventHandler(this.assignStudentToCourseToolStripMenuItem_Click);
             // 
             // logoutToolStripMenuItem
             // 
@@ -119,36 +127,26 @@ namespace LecturerStudentManagement
             // lblFullName
             // 
             this.lblFullName.AutoSize = true;
-            this.lblFullName.Location = new System.Drawing.Point(13, 36);
+            this.lblFullName.Location = new System.Drawing.Point(12, 40);
             this.lblFullName.Name = "lblFullName";
-            this.lblFullName.Size = new System.Drawing.Size(0, 17);
+            this.lblFullName.Size = new System.Drawing.Size(68, 16);
             this.lblFullName.TabIndex = 1;
-            // 
-            // btnLogout
-            // 
-            this.btnLogout.Location = new System.Drawing.Point(700, 36);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(75, 30);
-            this.btnLogout.TabIndex = 2;
-            this.btnLogout.Text = "Logout";
-            this.btnLogout.UseVisualStyleBackColor = true;
-            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            this.lblFullName.Text = "Full Name";
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnLogout);
+            this.ClientSize = new System.Drawing.Size(1126, 450);
             this.Controls.Add(this.lblFullName);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "MainForm";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
     }
 }

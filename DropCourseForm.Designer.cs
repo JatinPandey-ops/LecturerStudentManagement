@@ -4,9 +4,9 @@ namespace LecturerStudentManagement
     partial class DropCourseForm
     {
         private System.ComponentModel.IContainer components = null;
-        private TextBox txtCourseCode;
+        private ComboBox cmbCourses;
         private Button btnDropCourse;
-        private Label lblCourseCode;
+        private Label lblCourse;
 
         protected override void Dispose(bool disposing)
         {
@@ -19,17 +19,19 @@ namespace LecturerStudentManagement
 
         private void InitializeComponent()
         {
-            this.txtCourseCode = new System.Windows.Forms.TextBox();
+            this.cmbCourses = new System.Windows.Forms.ComboBox();
             this.btnDropCourse = new System.Windows.Forms.Button();
-            this.lblCourseCode = new System.Windows.Forms.Label();
+            this.lblCourse = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // txtCourseCode
+            // cmbCourses
             // 
-            this.txtCourseCode.Location = new System.Drawing.Point(150, 30);
-            this.txtCourseCode.Name = "txtCourseCode";
-            this.txtCourseCode.Size = new System.Drawing.Size(200, 22);
-            this.txtCourseCode.TabIndex = 0;
+            this.cmbCourses.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCourses.FormattingEnabled = true;
+            this.cmbCourses.Location = new System.Drawing.Point(150, 30);
+            this.cmbCourses.Name = "cmbCourses";
+            this.cmbCourses.Size = new System.Drawing.Size(200, 24);
+            this.cmbCourses.TabIndex = 0;
             // 
             // btnDropCourse
             // 
@@ -41,23 +43,21 @@ namespace LecturerStudentManagement
             this.btnDropCourse.UseVisualStyleBackColor = true;
             this.btnDropCourse.Click += new System.EventHandler(this.btnDropCourse_Click);
             // 
-            // lblCourseCode
+            // lblCourse
             // 
-            this.lblCourseCode.AutoSize = true;
-            this.lblCourseCode.Location = new System.Drawing.Point(30, 33);
-            this.lblCourseCode.Name = "lblCourseCode";
-            this.lblCourseCode.Size = new System.Drawing.Size(94, 17);
-            this.lblCourseCode.TabIndex = 2;
-            this.lblCourseCode.Text = "Course Code:";
+            this.lblCourse.AutoSize = true;
+            this.lblCourse.Location = new System.Drawing.Point(30, 33);
+            this.lblCourse.Name = "lblCourse";
+            this.lblCourse.Size = new System.Drawing.Size(58, 17);
+            this.lblCourse.TabIndex = 2;
+            this.lblCourse.Text = "Course:";
             // 
             // DropCourseForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(382, 113);
-            this.Controls.Add(this.lblCourseCode);
+            this.Controls.Add(this.lblCourse);
             this.Controls.Add(this.btnDropCourse);
-            this.Controls.Add(this.txtCourseCode);
+            this.Controls.Add(this.cmbCourses);
             this.Name = "DropCourseForm";
             this.Text = "Drop Course";
             this.ResumeLayout(false);
